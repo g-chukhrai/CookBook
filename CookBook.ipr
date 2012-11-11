@@ -68,7 +68,7 @@
             <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.7" />
             <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.7" />
             <element id="library" level="project" name="Maven: cglib:cglib-nodep:2.2" />
-            <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.4.1" />
+            <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.4" />
             <element id="library" level="project" name="Maven: org.primefaces.themes:bootstrap:1.0.8" />
             <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.5.2" />
             <element id="library" level="project" name="Maven: com.ocpsoft:prettyfaces-jsf2:3.3.3" />
@@ -397,11 +397,11 @@
     <configuration default="false" name="Tomcat 7.0.32" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.32">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <file path="$PROJECT_DIR$/target/CookBook.war">
+        <artifact name="CookBook:war">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
-        </file>
+        </artifact>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_CookBook_2" />
@@ -508,8 +508,10 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="Make" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="CookBook:war" />
+        </option>
+        <option name="Maven.BeforeRunTask" enabled="false" file="$PROJECT_DIR$/pom.xml" goal="package" />
       </method>
     </configuration>
   </component>
@@ -936,15 +938,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/themes/bootstrap/1.0.8/bootstrap-1.0.8-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.primefaces:primefaces:3.4.1">
+    <library name="Maven: org.primefaces:primefaces:3.4">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4.1/primefaces-3.4.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4/primefaces-3.4.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4.1/primefaces-3.4.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4/primefaces-3.4-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4.1/primefaces-3.4.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.4/primefaces-3.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.slf4j:slf4j-api:1.6.1">

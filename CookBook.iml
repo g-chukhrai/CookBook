@@ -89,7 +89,7 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.7" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.7" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.2" level="project" />
-    <orderEntry type="library" name="Maven: org.primefaces:primefaces:3.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.primefaces:primefaces:3.4" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces.themes:bootstrap:1.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: com.ocpsoft:prettyfaces-jsf2:3.3.3" level="project" />
