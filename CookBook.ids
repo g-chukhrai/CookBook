@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="dataSource" product="MySQL" version="5.1.41-community" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.16 ( Revision: ${bzr.revision-id} )" uuid="8b73db64-5e3b-4a5a-b873-75cef416a877">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost:3307/cookbook</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>df9bdf98df99</user-password>
+    <schema-pattern>cookbook.*</schema-pattern>
+    <default-schemas>cookbook.*</default-schemas>
+    <libraries>
+      <library>
+        <url>file://D:/lib/MySQL/mysql-connector-java-5.1.16-bin.jar</url>
+      </library>
+    </libraries>
+    <table name="amount" schema="" catalog="cookbook" type="TABLE">
+      <column name="amount_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="amount_id" />
+    </table>
+    <table name="category" schema="" catalog="cookbook" type="TABLE">
+      <column name="category_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="description" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="category_id" />
+    </table>
+    <table name="feedback" schema="" catalog="cookbook" type="TABLE">
+      <column name="feed_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="user_account_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="email" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="response" sqlType="VARCHAR" length="1000" precision="0" nullable="false" jdbcType="12" />
+      <column name="date_added" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="feed_id" />
+      <foreign-key name="user_acc_id" columns="user_account_id" ref-table="user_account" ref-schema="" ref-catalog="cookbook" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2" />
+    </table>
+    <table name="ingridient" schema="" catalog="cookbook" type="TABLE">
+      <column name="ingridient_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="price" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <primary-key name="PRIMARY" columns="ingridient_id" />
+    </table>
+    <table name="mark" schema="" catalog="cookbook" type="TABLE">
+      <column name="mark_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="value" sqlType="DOUBLE" length="2" precision="0" nullable="false" jdbcType="8" />
+      <column name="description" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="mark_id" />
+    </table>
+    <table name="recipe" schema="" catalog="cookbook" type="TABLE">
+      <column name="recipe_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="category_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="user_account_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="process" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1" />
+      <column name="description" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="image_name" sqlType="VARCHAR" length="1000" precision="0" nullable="true" jdbcType="12" />
+      <column name="cook_time" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="date_added" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="avg_mark" sqlType="DOUBLE" length="20" precision="0" nullable="true" jdbcType="8" />
+      <primary-key name="PRIMARY" columns="recipe_id" />
+      <foreign-key name="recipe_category_id_fk" columns="category_id" ref-table="category" ref-schema="" ref-catalog="cookbook" ref-columns="category_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <foreign-key name="user_account_id_fk" columns="user_account_id" ref-table="user_account" ref-schema="" ref-catalog="cookbook" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <index name="category_fk" unique="false" columns="category_id" />
+    </table>
+    <table name="recipe_mark" schema="" catalog="cookbook" type="TABLE">
+      <column name="recipe_mark_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="recipe_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="mark_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="user_account_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="date_added" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="recipe_mark_id" />
+      <foreign-key name="recipe_mark_ibfk_1" columns="mark_id" ref-table="mark" ref-schema="" ref-catalog="cookbook" ref-columns="mark_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <foreign-key name="recipe_mark_ibfk_2" columns="recipe_id" ref-table="recipe" ref-schema="" ref-catalog="cookbook" ref-columns="recipe_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <foreign-key name="recipe_mark_ibfk_3" columns="user_account_id" ref-table="user_account" ref-schema="" ref-catalog="cookbook" ref-columns="user_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <index name="recipe_mark_recipe_id_fk" unique="false" columns="recipe_id" />
+      <index name="recipe_mark_mark_id_fk" unique="false" columns="mark_id" />
+      <index name="recipe_mark_user_id_fk" unique="false" columns="user_account_id" />
+    </table>
+    <table name="recipe_product" schema="" catalog="cookbook" type="TABLE">
+      <column name="product_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="recipe_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ingridient_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="amount_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="amount_size" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="product_id" />
+      <foreign-key name="amount_id_fk" columns="amount_id" ref-table="amount" ref-schema="" ref-catalog="cookbook" ref-columns="amount_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <foreign-key name="ingridient_id_fk" columns="ingridient_id" ref-table="ingridient" ref-schema="" ref-catalog="cookbook" ref-columns="ingridient_id" update-rule="0" delete-rule="0" deferrability="2" />
+      <foreign-key name="recipe_id_fk" columns="recipe_id" ref-table="recipe" ref-schema="" ref-catalog="cookbook" ref-columns="recipe_id" update-rule="0" delete-rule="0" deferrability="2" />
+    </table>
+    <table name="user_account" schema="" catalog="cookbook" type="TABLE">
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="password" sqlType="VARCHAR" length="300" precision="0" nullable="false" jdbcType="12" />
+      <column name="email" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="user_authority_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="date_added" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="user_id" />
+      <foreign-key name="user_account_user_authority_id" columns="user_authority_id" ref-table="user_authority" ref-schema="" ref-catalog="cookbook" ref-columns="user_authority_id" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="user_authority" schema="" catalog="cookbook" type="TABLE">
+      <column name="user_authority_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="authority" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="user_authority_id" />
+    </table>
+  </data-source>
+</component>

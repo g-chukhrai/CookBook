@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+
+
+        <ui:define name="content">
+            <div style="width:750px;">
+                <p:breadCrumb model="#{categoryLazyMB.breadCrumbModel}"/>
+                <br/>
+                <h:form>
+
+                    <p:dataTable var="row"
+                                 value="#{categoryLazyMB.recipes}"
+                                 paginator="true"
+                                 paginatorPosition="bottom"
+                                 rows="10"
+                                 lazy="true"
+                                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                 rowsPerPageTemplate="5,10,15"
+                                 >
+
+                        <p:column>
+                            <div>
+                                <div style="float: left;">
+                                    <h:outputLink
+                                        value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                        <p:graphicImage
+                                            value="/resources/recipes/#{sessionMB.imagePath(row)}"
+                                            width="100px"/>
+                                    </h:outputLink>
+                                    <div class="markStyle" >
+                                        <h:outputText rendered="#{ratingMB.ratingString(row) != null}"
+                                                      value="#{ratingMB.ratingString(row)}"
+                                                      />
+                                    </div>
+                                </div>
+                                <div class="dateBox">
+                                    <h:outputText value="#{sessionMB.convertDateDay(row.dateAdded)}"
+                                                  style="font-weight: bolder"/>
+                                    <div class="dateBoxMonth">
+                                        <h:outputText value="#{sessionMB.convertDateMonth(row.dateAdded)}"/>
+                                    </div>
+                                </div>
+                                <div style="margin: 20px 0 10px 200px;">
+                                    <h:outputLink
+                                        value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                        <h:outputText value="#{row.name}" styleClass="recipePanelHeader"/>
+                                    </h:outputLink>
+                                    <br/>
+                                    <h:outputText value="#{categoryMB.cutString(row.process)}"/>
+                                    <br/><br/>
+                                    <ui:repeat value="#{categoryMB.getIngridients(row)}" var="ingridientName">
+                                        <h:outputLink value="/CookBook/search?ingridient=#{ingridientName}" style="margin: 0 3px;">
+                                            <h:outputText value="#{ingridientName}"/>
+                                        </h:outputLink>
+                                    </ui:repeat>
+                                </div>
+                            </div>
+
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</ui:composition >
+

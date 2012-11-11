@@ -1,0 +1,186 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sec="http://www.springframework.org/security/facelets/tags"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+        <ui:define name="title">
+            - <h:outputText value="#{msg['title.addRecipe']}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <f:view contentType="text/html">
+
+                <p:breadCrumb style="width:70%; margin-bottom: 10px;">
+                    <p:menuitem value="Home" url="/"/>
+                    <p:menuitem value="#{msg['title.addRecipe']}" url="/addRecipe"/>
+                </p:breadCrumb>
+                <sec:ifAnyGranted roles="ROLE_USER, ROLE_ADMIN, ROLE_ANONYMOUS">
+                    <p:panel style="width: 750px; margin-top: 50px;">
+                        <h:form id="ingrForm" >
+                            <h:outputLabel value="#{msg['label.product.ingridient']}"/>
+                            <p:autoComplete id="ingridientName"
+                                            style="width: 100px; color: black;"
+                                            value="#{addRecipeMB.product.ingridient.name}"
+                                            completeMethod="#{addRecipeMB.completeIngridient}"
+                                            required="true"/>
+                            <h:outputLabel value="#{msg['label.product.amountSize']}"/>
+                            <p:inputText value="#{addRecipeMB.product.amountSize}"
+                                         style="width: 100px; color: black;"
+                                         />
+                            <h:outputLabel value="#{msg['label.product.amount']}"/>
+                            <p:autoComplete id="amountName"
+                                            value="#{addRecipeMB.product.amount.name}"
+                                            completeMethod="#{addRecipeMB.completeAmount}"
+                                            style="width: 100px; color: black;"
+                                            required="true"/>
+                            <p:commandButton update="ingrForm"
+                                             value="#{msg['label.product.addProduct']}"
+                                             action="#{addRecipeMB.createNew}"
+                                             style="width: 150px;">
+                                <p:collector value="#{addRecipeMB.product}"
+                                             addTo="#{addRecipeMB.recipe.products}" />
+                            </p:commandButton>
+                            <br/>
+                            <ui:repeat value="#{addRecipeMB.products}" var="product" varStatus="id" >
+                                <h:outputText value="#{id.index + 1}. "/>
+                                <h:outputText value="#{product.ingridient.name} "/>
+                                <h:outputText value="#{product.amountSize} "/>
+                                <h:outputText value="#{product.amount.name}"/>
+                                <p:commandLink value="[x]" update="ingrForm" process="@this" style="color: grey;">
+                                    <p:collector value="#{product}"
+                                                 removeFrom="#{addRecipeMB.recipe.products}" />
+                                </p:commandLink>
+                                <br/>
+                            </ui:repeat>
+                        </h:form>
+                    </p:panel>
+                    <h:form id="recipeForm" prependId="false" enctype="multipart/form-data">
+
+                        <p:growl id="messages" showDetail="true" />
+
+                        <h:panelGrid columns="1" id="basePanel">
+
+                            <p:inputText  id="recipeName"
+                                          value="#{addRecipeMB.recipe.name}"
+                                          style="width: 200px; position: absolute; top:150px;"
+                                          required="true"
+                                          requiredMessage="#{msg['warning.recipeName']}"
+                                          />
+                            <p:message for="recipeName"/>
+                            <p:watermark for="recipeName" value="#{msg['tooltip.inputRecipeName']}" />
+                            <p:panel  style="width: 750px;">
+                                <p:fileUpload label="#{msg['label.recipe.imagesAdd']}"
+                                              fileUploadListener="#{addRecipeMB.handleFileUpload}"
+                                              mode="advanced"
+                                              update="messages images"
+                                              auto="true"
+                                              multiple="true"
+                                              sizeLimit="1000000"
+                                              allowTypes="png,gif,jpg"
+                                              />
+
+                                <p:outputPanel id="images">
+                                    <ui:repeat value="#{addRecipeMB.uploadedFilenames}" var="filename" varStatus="id">
+                                        <h:graphicImage value="/resources/recipes/#{filename}" width="100"/>
+                                        <h:outputText value="#{filename}" style="margin-left: 5px;"/>
+                                        <p:commandLink value="[title]" update="images" process="@this"
+                                                       styleClass="imageLinkStyle"
+                                                       actionListener="#{addRecipeMB.makeTitle(filename)}"
+                                                       rendered="#{addRecipeMB.uploadedFilenames.indexOf(filename) != 0}"/>
+                                        <p:commandLink value="[up]" update="images" process="@this"
+                                                       styleClass="imageLinkStyle"
+                                                       actionListener="#{addRecipeMB.makeUp(filename)}"
+                                                       rendered="#{addRecipeMB.uploadedFilenames.indexOf(filename) != 0}"/>
+                                        <p:commandLink value="[down]" update="images" process="@this"
+                                                       styleClass="imageLinkStyle"
+                                                       actionListener="#{addRecipeMB.makeDown(filename)}"
+                                                       rendered="#{addRecipeMB.uploadedFilenames.indexOf(filename) != addRecipeMB.uploadedFilenames.size() - 1}"/>
+                                        <p:commandLink value="[x]" update="images" process="@this" styleClass="imageLinkStyle"
+                                                       actionListener="#{addRecipeMB.removeImage(filename)}">
+                                            <p:collector value="#{filename}"
+                                                         removeFrom="#{addRecipeMB.uploadedFilenames}" />
+                                        </p:commandLink>
+                                        <br/>
+                                    </ui:repeat>
+                                    <h:outputText rendered="#{addRecipeMB.uploadedFilenames.isEmpty() == false}"
+                                                  value="#{msg['label.recipe.imagesHelp']}"
+                                                  style="font-size: 10px;color:grey;"/>
+                                </p:outputPanel>
+                            </p:panel>
+                            <p:selectOneMenu id="recipeCategory"
+                                             style="width: 200px;"
+                                             value="#{addRecipeMB.recipe.category.id}"
+                                             required="true"
+                                             requiredMessage="#{msg['warning.recipeCategory']}"
+                                             >
+                                <f:selectItem itemLabel="#{msg['label.select.category']}"
+                                              itemValue=""/>
+                                <f:selectItems value="#{addRecipeMB.categories}"
+                                               var="item"
+                                               itemLabel="#{item.name}"
+                                               itemValue="#{item.id}"
+                                               />
+                            </p:selectOneMenu>
+                            <p:message for="recipeCategory"/>
+                        </h:panelGrid>
+
+                        <p:spinner id="minmax"
+                                   value="#{addRecipeMB.recipe.cookTime}"
+                                   min="0"
+                                   max="300"
+                                   stepFactor="10"
+                                   width="50"
+                                   style="width:100px;"/>
+                        <h:outputLabel value="#{msg['label.recipe.timeHelp']}" style="color: darkgray;"/>
+                        <h:panelGrid columns="1">
+
+                            <p:panel style="width:750px; text-align: center; font-size: 16px;">
+                                <h:outputText value="#{msg['label.process']}"/>
+                            </p:panel>
+                            <p:editor id="recipeProcess"
+                                      value="#{addRecipeMB.recipe.process}"
+                                      required="true"
+                                      requiredMessage="#{msg['warning.recipeProcess']}"
+                                      width="750"
+                                      height="600"
+                                      valueChangeListener="#{addRecipeMB.processChanged}"
+                                      />
+                            <p:message for="recipeProcess"/>
+
+                            <p:inputTextarea id="recipeDescription"
+                                             value="#{addRecipeMB.recipe.description}"
+                                             effectDuration="400"
+                                             style="width: 750px; height: 50px;"
+                                             />
+                            <p:watermark for="recipeDescription" value="#{msg['tooltip.inputRecipeDescription']}" />
+
+                            <p:commandButton value="#{msg['title.addRecipe']}"
+                                             actionListener="#{addRecipeMB.submitCreate}"
+                                             update="recipeForm messages"
+                                             />
+                        </h:panelGrid>
+                    </h:form>
+                </sec:ifAnyGranted>
+                <sec:ifAnyGranted roles="ROLE_ANONYMOUS">
+                    <p:panel style="width: 750px; text-align: center; font-size: 18px; padding: 50px;">
+                        <h:outputText value="Только зарегистрированные пользователи могут добавлять рецепты"/>
+                        <br/>
+                        <br/>
+                        <h:outputLink value="/CookBook/login">
+                            <h:outputText value="Войдите"/>
+                        </h:outputLink>
+                        <h:outputText value=" или "/>
+                        <h:outputLink value="/CookBook/registration">
+                            <h:outputText value="Зарегистрируйтесь!"/>
+                        </h:outputLink>
+                    </p:panel>
+                </sec:ifAnyGranted>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</ui:composition>
+

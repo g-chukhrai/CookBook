@@ -1,0 +1,124 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+        <ui:define name="title">
+            - <h:outputText value="#{recipeMB.category.name}"/>
+            - <h:outputText value="#{recipeMB.recipe.name}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <f:view contentType="text/html">
+
+                <p:breadCrumb model="#{recipeMB.recipeCrumbModel}" style="width:70%; margin-bottom: 10px;"/>
+
+                <p:growl id="messages" showDetail="true"/>
+
+                <div style="float: left">
+                    <div class="dateBox">
+                        <h:outputText value="#{sessionMB.convertDateDay(recipeMB.recipe.dateAdded)}"
+                                      style="font-weight: bolder"/>
+                        <div class="dateBoxMonth">
+                            <h:outputText value="#{sessionMB.convertDateMonth(recipeMB.recipe.dateAdded)}"/>
+                        </div>
+                    </div>
+                    <p:graphicImage
+                        value="/resources/recipes/#{sessionMB.imagePath(recipeMB.recipe)}"
+                        width="100px"/>
+                </div>
+                <div class="recipeHeader">
+                    <h:outputText value="#{recipeMB.recipe.name}" style="font-size: 20px;"/>
+                    <br/><br/>
+                    <h:form>
+                        <p:rating
+                            update="messages markValues @this"
+                            rateListener="#{recipeMB.handleRate}"
+                            value="#{ratingMB.rating(recipeMB.recipe)}"
+                            disabled="#{recipeMB.userAccount == null}"
+                            />
+                        <br/>
+                        <h:panelGrid columns="1" id="markValues" >
+                            <h:outputText rendered="#{recipeMB.userRecipeMark.mark.value != null}"
+                                          value="Ваша оценка: #{recipeMB.userRecipeMark.mark.value} "/>
+                            <h:outputText rendered="#{ratingMB.ratingString(recipeMB.recipe) != null}"
+                                          value="Средняя оценка: #{ratingMB.ratingString(recipeMB.recipe)} "/>
+                        </h:panelGrid>
+
+                    </h:form>
+
+                    <div style="font: 14px serif; float: left;">
+                        <h:outputText rendered="#{recipeMB.recipe.cookTime != null}"
+                                      value="Время приготовления: #{recipeMB.recipe.cookTime} минут"/>
+                        <br/>
+                        <h:outputText value="Добавлен: "/>
+                        <h:outputLink value="/CookBook/user/#{recipeMB.recipe.userAccount.username}">
+                            <h:outputText value="#{recipeMB.recipe.userAccount.username}"/>
+                        </h:outputLink>
+
+                    </div>
+                </div>
+
+                <div class="ingridients boxShadow">
+                    <div class="ingridientsTitle">
+                        <h:outputText value="#{msg['label.ingridients']}"/>
+                    </div>
+                    <ui:repeat var="product" value="#{recipeMB.products}" varStatus="id">
+                        <h:outputText value="#{id.index + 1}. "/>
+                        <h:outputText value="#{product.ingridient.name} "/>
+                        <h:outputText value="#{product.amountSize} "/>
+                        <h:outputText value="#{product.amount.name}"/><br/>
+                    </ui:repeat>
+                </div>
+                <div class="infoForm boxShadow" style="width: 750px;" >
+                    <div class="infoFormHeader">
+                        <h:outputText value="#{msg['label.process']}"/>
+                    </div>
+                    <div>
+                        <h:outputText value="#{recipeMB.recipe.process}" escape="false"/>
+                    </div>
+                </div>
+
+                <h:form styleClass="infoFormToggle" rendered="#{recipeMB.images != null}">
+                    <p:fieldset legend="#{msg['label.images']}"
+                                toggleable="true"
+                                collapsed="true"
+                                toggleSpeed="500"
+                                styleClass=" boxShadow"
+                                >
+                        <p:lightBox slideshow="true" slideshowSpeed="2000"
+                                    slideshowStartText="#{msg['ui.startSlideshow']}"
+                                    slideshowStopText="#{msg['ui.stopSlideshow']}"
+                                    slideshowAuto="false">
+                            <ui:repeat value="#{recipeMB.images}" var="image">
+                                <h:outputLink value="/CookBook/resources/recipes/#{image}">
+                                    <p:graphicImage value="/resources/recipes/#{image}" width="100px"/>
+                                </h:outputLink>
+                            </ui:repeat>
+                        </p:lightBox>
+                        <h:outputText styleClass="tipStyle" value="#{msg['label.enlarge']}"/>
+                    </p:fieldset>
+                </h:form>
+
+                <h:form styleClass="infoFormToggle" rendered="#{recipeMB.recipe.description != null}">
+                    <p:fieldset legend="#{msg['label.addInfo']}"
+                                toggleable="true"
+                                toggleSpeed="500"
+                                styleClass="boxShadow"
+                                >
+                        <h:outputText value="#{recipeMB.recipe.description}"/>
+
+                    </p:fieldset>
+                </h:form>
+
+                <h:form>
+                    <p:commandButton value="Delete recipe" action="#{recipeMB.deleteRecipe}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</ui:composition>
+

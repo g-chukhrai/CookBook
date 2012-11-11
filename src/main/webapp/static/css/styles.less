@@ -1,0 +1,123 @@
+@nice-blue: #C6E3F5;
+
+.box-shadow (@x: 4px, @y: 4px, @blur: 1px, @alpha: black) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+
+  box-shadow:         @val;
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+}
+
+.border-radius (@radius: 4px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.wrap () {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+
+.text-shadow (@hor: 3px, @ver: 3px, @blur: 3px, @color: black){
+    text-shadow: @hor @ver @blur @color;
+}
+
+.inner-text (@size, @color){
+    color: darken(@color,30%);
+    font-size: @size;
+    .text-shadow(1px,1px, 0, @color);
+}
+
+.lighten-text (@size, @color){
+    color: lighten(@color,40%);
+    font-size: @size;
+    .text-shadow(1px,1px, 0, @color);
+}
+
+.gradient(@start, @stop){
+    background: @start; /* old browsers */
+    background: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
+    filter: e("progid:DXImageTransform.Microsoft.gradient( startColorstr='") @start e("', endColorstr='") @stop e("',GradientType=0 )");
+}
+
+.marg-pad(@val: 2px){
+    margin: @val;
+    padding: @val;
+}
+
+.box { @base: #f938ab;
+  color:        saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { 
+    .box-shadow(0, 0, 5px, 0.4);
+    }
+}
+
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+.textShadow{
+    .text-shadow(@p3,@p3,@p3,@nice-blue);
+}
+
+.niceGrad{
+    .gradient( white, @nice-blue);
+}
+
+.innerBlue{
+    .inner-text(20px, @nice-blue);
+}
+
+.headProfile{
+    .lighten-text(20px, @lightGray);
+}
+
+.wraped{
+    .wrap();
+}
+
+@small: 12px;
+@med: 16px;
+@p3: 3px;
+@black: #000000;
+@lightGray: #ADACAC;
+
+.date{
+    .border-radius(@p3);
+    .box-shadow(@p3,@p3,@p3,.5);
+    .lighten-text(@med, @lightGray);
+    .gradient(white,gray);
+    .marg-pad();
+}
+
+.recipeLink{
+    .inner-text(@med, @nice-blue);
+}
+
+.ui-widget-header a{
+    font-size: @small ;
+    color: @nice-blue;
+}
+
+.ui-widget-header a:hover{
+     font-size: @small;
+     color: lighten(@lightGray,10%);
+}
+
+//lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
+//darken(@color, 10%);      // return a color which is 10% *darker* than @color
+
+//saturate(@color, 10%);    // return a color 10% *more* saturated than @color
+//desaturate(@color, 10%);  // return a color 10% *less* saturated than @color
+
+//fadein(@color, 10%);      // return a color 10% *less* transparent than @color
+//fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+
+//spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
+//spin(@color, -10);        // return a color with a 10 degree smaller hue than @color

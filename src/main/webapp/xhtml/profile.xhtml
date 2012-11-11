@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="./template/template.xhtml">
+        <ui:define name="title">
+            - <h:outputText value="#{msg['profile.title']}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <p:breadCrumb model="#{userMB.breadModel}" style="width:70%; margin-bottom: 10px; "  styleClass="doh" />
+
+            <div>
+                <h:outputText value="#{userMB.userAccount.username}"
+                              styleClass="innerBlue"/>
+            </div>
+            <div style="margin-top: 10px;">
+                <h:outputText value="Зарегистрирован: #{sessionMB.dateToString(userMB.userAccount.dateAdded)}"
+                              styleClass="date"/>
+            </div>
+            <div style="margin: 10px 0px;">
+                <h:outputText value="Добавленные рецепты" styleClass="headProfile"/>
+            </div>
+            <h:form style="width: 500px;" prependId="false">
+                <p:dataList value="#{userMB.userRecipes}" var="recipe" itemType="circle"
+                            paginator="true" rows="10" effectSpeed="fade"
+                            paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"
+                            rowsPerPageTemplate="10,15,20"
+                            paginatorPosition="bottom"
+                            styleClass="box"
+                            >
+                    <h:outputLink
+                        value="/CookBook/category/#{recipe.category.id}/recipe/#{recipe.id}">
+                        <h:outputText value="#{recipe.name}" styleClass="recipeLink"/>
+                    </h:outputLink>
+                    <div style="float: right">
+                        <h:outputText value="#{sessionMB.dateToString(recipe.dateAdded)}"/>
+                    </div>
+                </p:dataList>
+                <div style="margin-bottom: 10px;">
+                    <h:outputText value="Оценки" styleClass="headProfile"/>
+                </div>
+                <f:view>
+                    <p:lineChart model="#{userMB.lineChart}" itemSelectListener="#{userMB.showRecipeMark}" />
+                </f:view>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</ui:composition>
+

@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:sec="http://www.springframework.org/security/facelets/tags"
+        >
+    <div>
+        <div class="logo">
+            <h:outputLink value="/">
+                <h:graphicImage value="/resources/recipes/logo.png"
+                                alt="LOGO"
+                                style="margin: 10px; padding: 5px;"/>
+            </h:outputLink>
+        </div>
+        <div class="topContent">
+            <h:form>
+                <h:outputText value="#{msg['header.welcome']}" styleClass="title"/>
+
+                <p:menubar style="margin-top: 10px; font-size: 16px; padding-top:10px; width: 550px;" >
+                    <p:menuitem value="#{msg['menu.all']}" url="/newest"/>
+                    <p:menuitem value="#{msg['menu.addRecipe']}" url="/add"/>
+                    <p:menuitem value="#{msg['menu.search']}" url="/search"/>
+                    <p:menuitem value="#{msg['menu.best']}" url="/best"/>
+                </p:menubar>
+            </h:form>
+        </div>
+        <div class="topLogin">
+            <sec:ifAnyGranted roles="ROLE_ANONYMOUS">
+                <h:outputLink value="/login" styleClass="loginUrl">
+                    <h:outputText value="#{msg['login.login']}"/>
+                </h:outputLink>
+                <h:outputLink value="/registration" styleClass="loginUrl">
+                    <h:outputText value="#{msg['login.registration']}"/>
+                </h:outputLink>
+            </sec:ifAnyGranted>
+
+            <sec:ifAnyGranted roles="ROLE_USER, ROLE_ADMIN">
+                <h:form>
+                    <h:outputText value="Добро пожаловать, " styleClass="loginUrl"/>
+                    <h:outputLink value="/user/#{sequrityMB.userDetails.username}"
+                                  styleClass="loginUrl">
+                        <h:outputText value="#{sequrityMB.userDetails.username}"/>
+                    </h:outputLink>
+                    <h:outputText value="!" styleClass="loginUrl"/><br/><br/>
+                    <h:commandLink action="#{sequrityMB.doLogout}"
+                                   value="#{msg['login.logout']}"
+                                   id="logout"
+                                   style="float: right;"
+                                   styleClass="loginUrl"/>
+                </h:form>
+            </sec:ifAnyGranted>
+
+        </div>
+    </div>
+
+</ui:composition>
+

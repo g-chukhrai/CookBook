@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+
+        <ui:define name="title">
+            - <h:outputText value="#{msg['label.registration.title']}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <p:breadCrumb style="width:70%; margin-bottom: 10px;">
+                <p:menuitem value="Home" url="/"/>
+                <p:menuitem value="#{msg['label.registration.title']}" url="/registration"/>
+            </p:breadCrumb>
+            <h:form prependId="false">
+                <h:panelGrid columns="1">
+                    <h:outputLabel for="login"
+                                   value="#{msg['login.username']}"/>
+                    <h:panelGrid columns="2">
+                        <p:inputText id="login"
+                                     value="#{sequrityMB.userAccount.username}"
+                                     style="width: 300px;"
+                                     required="true"
+                                     requiredMessage="#{msg['warning.login']}"
+                                     />
+                        <p:message for="login"/>
+                    </h:panelGrid>
+
+                    <p:watermark for="login"
+                                 value="#{msg['tooltip.inputLogin']}"
+                                 />
+
+                    <h:outputLabel for="password"
+                                   value="#{msg['login.password']}"
+                                   />
+                    <h:panelGrid columns="2">
+                        <p:password id="password"
+                                    feedback="true"
+                                    value="#{sequrityMB.userAccount.password}"
+                                    minLength="6"
+                                    promptLabel="#{msg['login.help']}"
+                                    weakLabel="#{msg['login.weak']}"
+                                    goodLabel="#{msg['login.normal']}"
+                                    strongLabel="#{msg['login.great']}"
+                                    style="width: 300px;"
+                                    required="true"
+                                    requiredMessage="#{msg['warning.password']}"
+                                    />
+                        <p:message for="password"/>
+                    </h:panelGrid>
+
+                    <p:watermark for="password"
+                                 value="#{msg['tooltip.inputPassword']}"
+                                 />
+
+                    <h:outputLabel for="email" value="#{msg['login.email']}"/>
+                    <h:panelGrid columns="2">
+                        <p:inputText id="email"
+                                     value="#{sequrityMB.userAccount.email}"
+                                     style="width: 300px;"
+                                     required="true"
+                                     requiredMessage="#{msg['warning.email']}"
+                                     />
+                        <p:message for="email"/>
+                    </h:panelGrid>
+                    <p:watermark for="email"
+                                 value="#{msg['tooltip.inputEmail']}"
+                                 />
+
+<!--                    <h:outputLabel for="captcha" value="#{msg['login.captchaLabel']}"/>
+                    <h:panelGrid columns="2">
+                        <p:captcha id="captcha"
+                                   label="Captcha"
+                                   language="ru"
+                                   theme="white"
+                                   required="true"
+                                   requiredMessage="#{msg['warning.captcha']}"
+                                   />
+                        <p:message for="captcha"/>
+                    </h:panelGrid>-->
+
+                </h:panelGrid>
+
+                <p:commandButton action="#{sequrityMB.doRegister}"
+                                 value="#{msg['label.registration.register']}"/>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</ui:composition >
+

@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+
+        >
+
+    <ui:composition template="./template/template.xhtml">
+
+        <ui:define name="title">
+            - <h:outputText value="#{msg['label.login.title']}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <p:breadCrumb style="width:70%; margin-bottom: 10px;">
+                <p:menuitem value="Home" url="/"/>
+                <p:menuitem value="#{msg['label.login.title']}" url="/login"/>
+            </p:breadCrumb>
+            <h:form prependId="false">
+                <h:outputText rendered="#{param.fail == 1}"
+                              value="#{msg['warning.loginFailed']}"
+                              styleClass="errorMessage"
+                              />
+                <br/>
+                <br/>
+                <br/>
+                <p:inputText id="j_username"
+                             required="true"
+                             requiredMessage="#{msg['warning.login']}"
+                             styleClass="loginInput"
+                             />
+                <p:message for="j_username"/>
+                <p:watermark for="j_username"
+                             value="#{msg['tooltip.inputLogin']}"
+                             />
+                <br/>
+                <p:password    feedback="none" minLength="0" id="j_password"
+                               required="true"
+                               requiredMessage="#{msg['warning.password']}"
+                               styleClass="loginInput"
+                               />
+                <p:message for="j_password"/>
+
+                <p:watermark for="j_password"
+                             value="#{msg['tooltip.inputPassword']}"
+                             />
+                <br/>
+
+                <h:commandButton action="#{sequrityMB.doLogin}"
+                                 value="#{msg['login.login']}"
+                                 id="login"/>                
+                <h:selectBooleanCheckbox value="null" id="_spring_security_remember_me"/>
+                <h:outputLabel value="#{msg['login.rememberMe']}" for="_spring_security_remember_me" />
+                <br/>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</ui:composition >
+

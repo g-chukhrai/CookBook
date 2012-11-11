@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+
+        <ui:define name="title">
+            - <h:outputText value="#{msg['label.search.title']}"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <p:breadCrumb style="width:70%; margin-bottom: 10px;">
+                <p:menuitem value="Home" url="/"/>
+                <p:menuitem value="#{msg['label.search.title']}" url="/search"/>
+            </p:breadCrumb>
+
+            <h:form prependId="false">
+                <p:panel style="width: 70%;">
+                    <p:inputText value="#{searchMB.searchString}"/>
+                    <p:commandButton value="Поиск!" update="searchResult" actionListener="#{searchMB.search}"/>
+                    <p:commandButton value="Добавить ингридиент" process="@parent" update="ingrRepeat">
+                        <p:collector value="#{searchMB.searchString}" addTo="#{searchMB.ingridients}"/>
+                    </p:commandButton><br/><br/>
+                    <h:panelGroup id="ingrRepeat">
+                        <ui:repeat value="#{searchMB.ingridients}" var="ingridient" >
+                            <h:outputText value="#{ingridient}" style="margin-left: 5px;"/>
+                            <p:commandLink value="[x]" update="ingrRepeat" process="@this" styleClass="imageLinkStyle">
+                                <p:collector value="#{ingridient}"
+                                             removeFrom="#{searchMB.ingridients}" />
+                            </p:commandLink>
+                        </ui:repeat>
+                    </h:panelGroup>
+                </p:panel>
+
+                <p:panel style="width: 70%;">
+                    <h:panelGroup id="searchResult">
+                        <ui:repeat value="#{searchMB.recipes}" var="recipe" >
+                            <h:outputText value="#{recipe.name}"/><br/>
+                        </ui:repeat>
+                    </h:panelGroup>
+                </p:panel>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</ui:composition >
+

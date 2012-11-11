@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+        >
+
+    <ui:composition template="./template/template.xhtml">
+
+
+        <ui:define name="content">
+            <p:breadCrumb model="#{categoryMB.breadCrumbModel}"/>
+            <h:form>
+                <p:dataGrid var="row" 
+                            value="#{categoryMB.recipes}" 
+                            columns="3"
+                            rows="9"
+                            paginator="false"
+                            effect="true"
+                            paginatorAlwaysVisible="false"
+                            >
+
+                    <p:column>
+                        <p:panel style="width: 330px; height: 250px;">
+                            <h:outputLink
+                                value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                <h:outputText value="#{row.name}" styleClass="recipePanelHeader"/>
+                            </h:outputLink>
+                            <div class="dateBox">
+                                <h:outputText value="#{sessionMB.convertDateDay(row.dateAdded)}"
+                                              style="font-weight: bolder"/>
+                                <div class="dateBoxMonth">
+                                    <h:outputText value="#{sessionMB.convertDateMonth(row.dateAdded)}"/>
+                                </div>
+                            </div>
+                            <h:panelGrid columns="2" style="width:300px;">
+                                <h:column>
+                                    <h:outputLink
+                                        value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                        <p:graphicImage
+                                            value="/resources/recipes/#{sessionMB.imagePath(row)}"
+                                            width="100px"/>
+                                    </h:outputLink>
+
+                                </h:column>
+                                <h:column>
+                                    <div style="margin: 20px 0;">
+                                        <h:outputText value="#{categoryMB.cutString(row.process)}"
+                                                      styleClass="wraped" 
+                                                      />
+                                    </div>
+                                    <ui:repeat value="#{categoryMB.getIngridients(row)}" var="ingridientName">
+                                        <h:outputLink value="/CookBook/search?ingridient=#{ingridientName}" style="margin: 0 3px;">
+                                            <h:outputText value="#{ingridientName}"/>
+                                        </h:outputLink>
+                                    </ui:repeat>
+                                </h:column>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:column>
+
+                </p:dataGrid>
+
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</ui:composition >
+

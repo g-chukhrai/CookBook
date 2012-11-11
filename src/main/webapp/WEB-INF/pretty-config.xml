@@ -1,0 +1,59 @@
+<pretty-config xmlns="http://ocpsoft.org/prettyfaces/3.3.3"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/prettyfaces/3.3.3
+                           http://ocpsoft.org/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.3.xsd">
+    <url-mapping id="index">
+        <pattern value="/"/>
+        <view-id>/xhtml/category.xhtml</view-id>
+        <action>#{categoryMB.viewNewest}</action>
+    </url-mapping>
+
+    <url-mapping id="newest">
+        <pattern value="/newest"/>
+        <view-id>/xhtml/category.xhtml</view-id>
+        <action>#{categoryMB.viewNewest}</action>
+    </url-mapping>
+
+    <url-mapping id="category">
+        <pattern value="/category/#{categoryLazyMB.categoryId}"/>
+        <view-id>/xhtml/categoryLazy.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="best">
+        <pattern value="/best"/>
+        <view-id>/xhtml/category.xhtml</view-id>
+        <action>#{categoryMB.viewBest}</action>
+    </url-mapping>
+
+    <url-mapping id="recipe">
+        <pattern value="/category/#{recipeMB.categoryId}/recipe/#{recipeMB.recipeId}"/>
+        <view-id>/xhtml/recipe.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="addRecipe">
+        <pattern value="/add"/>
+        <view-id>/xhtml/addRecipe.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="register">
+        <pattern value="/registration"/>
+        <view-id>/xhtml/register.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="login">
+        <pattern value="/login"/>
+        <view-id>/xhtml/login.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="profile">
+        <pattern value="/user/#{userMB.username}"/>
+        <view-id>/xhtml/profile.xhtml</view-id>
+    </url-mapping>
+
+    <url-mapping id="search">
+        <pattern value="/search"/>
+        <query-param name="ingridient">#{searchMB.ingridient}</query-param>
+        <view-id>/xhtml/search.xhtml</view-id>
+        <action>#{searchMB.readParams}</action>
+    </url-mapping>
+</pretty-config>

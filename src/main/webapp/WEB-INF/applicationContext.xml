@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation=  "http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <!-- Activates annotation-based bean configuration -->
+    <context:annotation-config/>
+    <context:spring-configured/>
+    <tx:annotation-driven/>
+
+    <!-- Scans for application @Components to deploy -->
+    <context:component-scan base-package="by.chuger.cookbook"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+         p:sessionFactory-ref="sessionFactory"
+          />
+
+    <!--Настройка подключения к базе данных-->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />
+    
+    <!-- Настройки фабрики сессий Хибернейта -->
+    <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation">
+            <value>/WEB-INF/hibernate.cfg.xml</value>
+        </property>
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.connection.charSet">UTF-8</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--Создание параметризированных ДАО-классов-->
+    <bean id="recipeDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Recipe</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="categoryDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Category</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="amountDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Amount</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="ingridientDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Ingridient</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="productDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Product</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="userAccountDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.UserAccount</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="userAuthorityDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.UserAuthority</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="recipeMarkDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.RecipeMark</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="markDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Mark</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="feedbackDAO" class="by.chuger.cookbook.model.dao.BaseDAOImpl" >
+        <constructor-arg>
+            <value>by.chuger.cookbook.model.domain.Feedback</value>
+        </constructor-arg>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!--Передача ДАО-объектов фасаду в качестве переменных конструктора-->
+    <bean id="facade" class="by.chuger.cookbook.model.dao.FacadeImpl" >
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="DBUsers" class="by.chuger.cookbook.model.dao.DBUserDetails">
+        <constructor-arg name="facade" ref="facade"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="view">
+                    <bean class="by.chuger.cookbook.view.bean.ViewScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <import resource="applicationContext-security.xml"/>
+    <aop:aspectj-autoproxy/>
+    <bean id="logaspect" class="by.chuger.cookbook.model.logging.LoggingAspect"/>
+</beans>
