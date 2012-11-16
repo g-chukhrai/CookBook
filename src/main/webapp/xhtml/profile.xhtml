@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:composition template="./template/template.xhtml">
@@ -32,7 +32,7 @@
                             styleClass="box"
                             >
                     <h:outputLink
-                        value="/CookBook/category/#{recipe.category.id}/recipe/#{recipe.id}">
+                        value="/category/#{recipe.category.id}/recipe/#{recipe.id}">
                         <h:outputText value="#{recipe.name}" styleClass="recipeLink"/>
                     </h:outputLink>
                     <div style="float: right">

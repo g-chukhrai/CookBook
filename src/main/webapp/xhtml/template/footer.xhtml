@@ -1,6 +1,6 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:sec="http://www.springframework.org/security/facelets/tags"
         >
@@ -25,14 +25,14 @@
         <h:form>
             <h:panelGrid columns="2" style="margin-bottom:10px">
                 <sec:ifAnyGranted roles="ROLE_ANONYMOUS">
-                    <h:outputLabel for="email" value="Адрес электронной почты:" />
-                    <p:inputText id="email" 
+                    <h:outputLabel for="email" value="Адрес электронной почты:"/>
+                    <p:inputText id="email"
                                  value="#{responseMB.email}"
                                  style="width: 300px;"/>
                 </sec:ifAnyGranted>
 
-                <h:outputLabel for="response" value="Отзыв о сайте:" />
-                <p:inputTextarea id="response" 
+                <h:outputLabel for="response" value="Отзыв о сайте:"/>
+                <p:inputTextarea id="response"
                                  value="#{responseMB.response}"
                                  style="height: 100px; width: 300px;"/>
             </h:panelGrid>
@@ -45,11 +45,11 @@
     </p:dialog>
 
     <p:dialog header="#{msg['app.about']}" widgetVar="aboutDlg" modal="true" height="100">
-        <h:outputText value="#{msg['header.welcome']}" />
+        <h:outputText value="#{msg['header.welcome']}"/>
     </p:dialog>
 
     <p:dialog header="#{msg['app.ad']}" widgetVar="adDlg" modal="true" height="100">
-        <h:outputText value="На сайте нет и не будет никакой рекламы!" />
+        <h:outputText value="На сайте нет и не будет никакой рекламы!"/>
     </p:dialog>
 </ui:composition>
 

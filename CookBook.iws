@@ -20,8 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a3d1424-7a77-4a4f-a2b4-50e606f8dd80" name="Default" comment="revert to primefaces 3.4, update to less 1.3.1">
-      <change type="DELETED" beforePath="D:\Proj\CookBookMaven\README.md" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/state/ViewState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/state/ViewType.java" />
+      <change type="DELETED" beforePath="D:\Proj\CookBookMaven\src\main\java\resources\Database\model.mwb" afterPath="" />
+      <change type="DELETED" beforePath="D:\Proj\CookBookMaven\src\main\webapp\WEB-INF\sun-web.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Proj\CookBookMaven\src\rebel.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CookBook.iml" afterPath="$PROJECT_DIR$/CookBook.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CookBook.ipr" afterPath="$PROJECT_DIR$/CookBook.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CookBook.iws" afterPath="$PROJECT_DIR$/CookBook.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/Facade.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/Facade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/FacadeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/FacadeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/domain/Recipe.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/domain/Recipe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/AddRecipeMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/AddRecipeMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryLazyMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryLazyMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/ResponseMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/ResponseMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SearchMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SearchMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SequrityMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SequrityMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SessionMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SessionMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/UserMB.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/UserMB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/addRecipe.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/addRecipe.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/category.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/category.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/categoryLazy.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/categoryLazy.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/login.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/login.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/profile.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/profile.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/recipe.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/recipe.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/register.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/register.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/search.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/search.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/template/footer.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/template/footer.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/template/leftMenu.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/template/leftMenu.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/xhtml/template/topMenu.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/xhtml/template/topMenu.xhtml" />
+      <change type="MOVED" beforePath="D:\Proj\CookBookMaven\src\main\java\resources\Database\110309172159.sql" afterPath="$PROJECT_DIR$/src/main/java/Database/init.sql" />
+      <change type="MOVED" beforePath="D:\Proj\CookBookMaven\src\main\java\resources\Text.java" afterPath="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/utils/MessageUtils.java" />
+      <change type="MOVED" beforePath="D:\Proj\CookBookMaven\src\main\java\resources\Text_ru_RU.properties" afterPath="$PROJECT_DIR$/src/main/resources/Text_ru_RU.properties" />
     </list>
     <ignored path="CookBook.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +64,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="ChangesViewManager" flattened_view="false" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -99,30 +137,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/xhtml/template/footer.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pretty-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/FacadeImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/resources/Text_ru_RU.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/xhtml/template/topMenu.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/SequrityMB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Database/110309172159.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/utils/Text.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/AddRecipeMB.java" />
         <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryLazyMB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/UserMB.java" />
-        <option value="$PROJECT_DIR$/src/rebel.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/rebel.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/ViewType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/state/ViewType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/state/ViewState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/utils/MessageUtils.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/README" />
-        <option value="$PROJECT_DIR$/src/main/webapp/xhtml/template/template.xhtml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/utils/MessageUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/domain/Recipe.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pretty-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryMB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/FacadeImpl.java" />
       </list>
     </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
@@ -154,56 +192,14 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="war" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Cooking Site" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Cooking Site" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
           <option name="myItemId" value="Lifecycle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Profiles" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProfilesNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
   </component>
   <component name="MavenRunner">
-    <option name="jreName" value="1.6.0_31" />
+    <option name="skipTests" value="true" />
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
@@ -224,7 +220,7 @@
     <OptionsSetting value="true" id="Edit" />
     <OptionsSetting value="true" id="Undo Check Out" />
     <OptionsSetting value="true" id="Get Latest Version" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -271,6 +267,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBookMaven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CookBookMaven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -291,13 +327,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="options.lastSelected" value="com.zeroturnaround.javarebel.idea.plugin.settings.ActivationConfigurable" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -311,7 +347,14 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="by.chuger.cookbook.view.state" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proj\CookBookMaven\src\main\resources" />
+      <recent name="D:\Proj\CookBookMaven\src\main\java" />
+      <recent name="D:\Proj\CookBookMaven\src\main\java\by\chuger\cookbook" />
+      <recent name="D:\Proj\CookBookMaven\src\main\java\by\chuger\cookbook\utils" />
       <recent name="D:\Proj\CookBookMaven\src\main\webapp\static\script" />
     </key>
   </component>
@@ -526,15 +569,15 @@
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4936306" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282989" sideWeight="0.1923077" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.82051283" sideWeight="0.4936306" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.49923664" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5641026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.1923077" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8125" sideWeight="0.49046105" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.91346157" sideWeight="0.49046105" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19475357" sideWeight="0.2275641" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61538464" sideWeight="0.49761146" order="11" side_tool="true" content_ui="tabs" />
@@ -542,13 +585,13 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55448717" sideWeight="0.5007949" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8125" sideWeight="0.50397456" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6298077" sideWeight="0.50397456" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19475357" sideWeight="0.5849359" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282989" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.4946565" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.37339744" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21701112" sideWeight="0.40064102" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2217806" sideWeight="0.80448717" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399841" sideWeight="0.17948718" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.37019232" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24642289" sideWeight="0.17948718" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6266026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -642,129 +685,126 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/resources/Text.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/state/ViewState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="0.042662118" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="583" selection-end="583" vertical-scroll-proportion="-11.05" />
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-compiler-plugin/2.0.2/maven-compiler-plugin-2.0.2.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="528" selection-end="528" vertical-scroll-proportion="0.2901024" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="918" selection-end="918" vertical-scroll-proportion="0.5706714">
+        <state line="2" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml">
-      <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryLazyMB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="47" selection-start="292" selection-end="292" vertical-scroll-proportion="0.1761658">
+        <state line="23" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.11352254">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar!/javax/inject/Named.class">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-configuration-3.0.dtd">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="-4.76">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/ResponseMB.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="16" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+        <state line="1" column="93" selection-start="132" selection-end="132" vertical-scroll-proportion="0.072649576">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/xhtml/template/footer.xhtml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/3.6.1.Final/hibernate-core-3.6.1.Final-sources.jar!/org/hibernate/annotations/CacheConcurrencyStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="70" selection-start="320" selection-end="320" vertical-scroll-proportion="-3.9230769">
-          <folding>
-            <marker date="1352660327639" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352660327639" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352660327639" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352660327639" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/styles.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="94" selection-end="94" vertical-scroll-proportion="0.087030716">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/xhtml/template/template.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="56" selection-start="308" selection-end="308" vertical-scroll-proportion="0.14834206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="10" selection-start="215" selection-end="215" vertical-scroll-proportion="0.34056762">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/xhtml/addRecipe.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="26" selection-start="79" selection-end="79" vertical-scroll-proportion="0.030357143">
-          <folding>
-            <marker date="1352660327686" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352660327686" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1352660327686" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-web-api/6.0/javaee-web-api-6.0.jar!/javax/servlet/http/HttpServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="21" selection-start="948" selection-end="948" vertical-scroll-proportion="0.34759358">
+        <state line="35" column="4" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.24204947">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="10" selection-start="11633" selection-end="11633" vertical-scroll-proportion="0.36177474">
+        <state line="343" column="28" selection-start="11240" selection-end="11240" vertical-scroll-proportion="0.12286689">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml">
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.028380634">
+        <state line="5" column="34" selection-start="208" selection-end="208" vertical-scroll-proportion="0.15017667">
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/utils/MessageUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="25" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/domain/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="89" selection-start="4157" selection-end="4157" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rebel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pretty-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="37" selection-start="970" selection-end="978" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/view/bean/CategoryMB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="63" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/by/chuger/cookbook/model/dao/FacadeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="217" column="69" selection-start="7263" selection-end="7263" vertical-scroll-proportion="0.44880545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/xhtml/error/accessDenied.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="9" selection-start="324" selection-end="324" vertical-scroll-proportion="0.20767888">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/xhtml/template/footer.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="367" selection-end="367" vertical-scroll-proportion="0.23734729">
+          <folding>
+            <marker date="1353007456814" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1353007456814" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1353007456814" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1353007456814" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -780,6 +820,17 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

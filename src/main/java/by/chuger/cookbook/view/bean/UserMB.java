@@ -124,7 +124,7 @@ public class UserMB implements Serializable {
         try {
             int itemIndex = e.getItemIndex();
             RecipeMark rm = userMarkedRecipes.get(itemIndex);
-            String redirectUrl = MessageFormat.format("/CookBook/category/{0}/recipe/{1}", rm.getRecipe().getCategory().getId(), rm.getRecipe().getId());
+            String redirectUrl = MessageFormat.format("/category/{0}/recipe/{1}", rm.getRecipe().getCategory().getId(), rm.getRecipe().getId());
             FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
         } catch (Exception ex) {
             //TODO:LOG

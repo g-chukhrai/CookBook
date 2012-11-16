@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:sec="http://www.springframework.org/security/facelets/tags"
         >
@@ -85,7 +85,7 @@
 
                                 <p:outputPanel id="images">
                                     <ui:repeat value="#{addRecipeMB.uploadedFilenames}" var="filename" varStatus="id">
-                                        <h:graphicImage value="/resources/recipes/#{filename}" width="100"/>
+                                        <h:graphicImage value="/static/images/#{filename}" width="100"/>
                                         <h:outputText value="#{filename}" style="margin-left: 5px;"/>
                                         <p:commandLink value="[title]" update="images" process="@this"
                                                        styleClass="imageLinkStyle"
@@ -170,11 +170,11 @@
                         <h:outputText value="Только зарегистрированные пользователи могут добавлять рецепты"/>
                         <br/>
                         <br/>
-                        <h:outputLink value="/CookBook/login">
+                        <h:outputLink value="/login">
                             <h:outputText value="Войдите"/>
                         </h:outputLink>
                         <h:outputText value=" или "/>
-                        <h:outputLink value="/CookBook/registration">
+                        <h:outputLink value="/registration">
                             <h:outputText value="Зарегистрируйтесь!"/>
                         </h:outputLink>
                     </p:panel>

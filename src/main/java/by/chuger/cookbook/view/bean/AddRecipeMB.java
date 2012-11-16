@@ -2,6 +2,7 @@ package by.chuger.cookbook.view.bean;
 
 import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.*;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.primefaces.event.FileUploadEvent;
@@ -14,7 +15,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -110,11 +110,11 @@ public class AddRecipeMB implements Serializable {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         UserAccount userAccount = facade.getUserAccountByName(userDetails.getUsername());
         if (userAccount == null) {
-            Text.showMessage("Authentification problem", "User Account not found.");
+            MessageUtils.showMessage("Authentification problem", "User Account not found.");
             return;
         }
 
-        if (recipe.getDescription().equals(Text.getMessage("tooltip.inputRecipeDescription"))) {
+        if (recipe.getDescription().equals(MessageUtils.getMessage("tooltip.inputRecipeDescription"))) {
             recipe.setDescription(null);
         }
         if (recipe.getCookTime().equals(0)) {
@@ -131,7 +131,7 @@ public class AddRecipeMB implements Serializable {
         for (String filename : uploadedFilenames) {
             imagesString += filename + ";";
         }
-        recipe.setImages(Text.isNotEmpty(imagesString) ? imagesString : "noimage.png;");
+        recipe.setImages(MessageUtils.isNotEmpty(imagesString) ? imagesString : "noimage.png;");
 
         facade.createRecipe(recipe);//ss
         String redirectUrl = MessageFormat.format("category/{0}/recipe/{1}", recipe.getCategory().getId(), recipe.getId());
@@ -141,7 +141,7 @@ public class AddRecipeMB implements Serializable {
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
         } catch (IOException ex) {
-            Text.showMessage("Redirect", "IOException.");
+            MessageUtils.showMessage("Redirect", "IOException.");
         }
     }
 
@@ -149,18 +149,18 @@ public class AddRecipeMB implements Serializable {
         boolean isValid = true;
         if (principal instanceof String) {
             isValid = false;
-            Text.showMessage("Authentification problem", "You mus be logged in to create recipe.");
+            MessageUtils.showMessage("Authentification problem", "You mus be logged in to create recipe.");
         } else if (principal instanceof UserDetails == false) {
             isValid = false;
-            Text.showMessage("Authentification problem", "Something wrong.");
+            MessageUtils.showMessage("Authentification problem", "Something wrong.");
         }
-        if (recipe.getName().equals(Text.getMessage("tooltip.inputRecipeName"))) {
+        if (recipe.getName().equals(MessageUtils.getMessage("tooltip.inputRecipeName"))) {
             isValid = false;
-            Text.addError("recipeName", "warning.recipeName");
+            MessageUtils.addError("recipeName", "warning.recipeName");
         }
-        if (recipe.getProcess().equals(Text.getMessage("tooltip.inputRecipeProcess"))) {
+        if (recipe.getProcess().equals(MessageUtils.getMessage("tooltip.inputRecipeProcess"))) {
             isValid = false;
-            Text.addError("recipeProcess", "warning.recipeProcess");
+            MessageUtils.addError("recipeProcess", "warning.recipeProcess");
         }
         return isValid;
     }
@@ -192,7 +192,7 @@ public class AddRecipeMB implements Serializable {
         UploadedFile file = event.getFile();
         String fileName = uploadFile(file);
         uploadedFilenames.add(fileName);
-        Text.showMessage("Succesful", event.getFile().getFileName() + " is temp uploaded.");
+        MessageUtils.showMessage("Succesful", event.getFile().getFileName() + " is temp uploaded.");
     }
 
     private String uploadFile(final UploadedFile file) {
@@ -216,12 +216,12 @@ public class AddRecipeMB implements Serializable {
             }
             fos.close();
             is.close();
-            Text.showMessage("Succesful", fileName + " is uploaded.");
+            MessageUtils.showMessage("Succesful", fileName + " is uploaded.");
             return newFileName;
         } catch (UnsupportedEncodingException e) {
-            Text.showMessage("Fail", "Encoding filename.");
+            MessageUtils.showMessage("Fail", "Encoding filename.");
         } catch (IOException e) {
-            Text.showMessage("Fail", "Fail creatating uploading.");
+            MessageUtils.showMessage("Fail", "Fail creatating uploading.");
         }
         return null;
     }

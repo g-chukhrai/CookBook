@@ -216,7 +216,7 @@ public class FacadeImpl extends HibernateDaoSupport implements Facade {
     @Transactional(propagation = Propagation.REQUIRED)
     public Collection<Recipe> getRecipesOrderByAvgMark() {
 //        Query query = getSession().createQuery("select recipe from Recipe recipe join recipe.recipeMarks marks group by marks.recipe.id order by avg(marks.mark.id) desc").setMaxResults(9);
-        Query query = getSession().createQuery("select recipe from Recipe recipe order by recipe.avg_mark desc");
+        Query query = getSession().createQuery("select recipe from Recipe recipe order by recipe.avgMark desc");
 //        Criteria query = getSession()
 //                .createCriteria(Recipe.class)
 //                .createAlias("recipeMarks", "rm")
@@ -288,7 +288,7 @@ public class FacadeImpl extends HibernateDaoSupport implements Facade {
     @Transactional(propagation = Propagation.REQUIRED)
     public int getRecipeCountInCategory(int categoryId) {
         Query query = getSession().createQuery("select count(r) from Recipe r where r.category.id = :catId").setParameter("catId", categoryId);
-        Long lval = (Long)query.list().get(0);
+        Long lval = (Long) query.list().get(0);
         return lval.intValue();
     }
 }

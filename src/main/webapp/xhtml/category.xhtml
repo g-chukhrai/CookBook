@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:p="http://primefaces.org/ui"
         >
 
     <ui:composition template="./template/template.xhtml">
@@ -22,7 +22,7 @@
                     <p:column>
                         <p:panel style="width: 330px; height: 250px;">
                             <h:outputLink
-                                value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                value="/category/#{row.category.id}/recipe/#{row.id}">
                                 <h:outputText value="#{row.name}" styleClass="recipePanelHeader"/>
                             </h:outputLink>
                             <div class="dateBox">
@@ -35,9 +35,9 @@
                             <h:panelGrid columns="2" style="width:300px;">
                                 <h:column>
                                     <h:outputLink
-                                        value="/CookBook/category/#{row.category.id}/recipe/#{row.id}">
+                                        value="/category/#{row.category.id}/recipe/#{row.id}">
                                         <p:graphicImage
-                                            value="/resources/recipes/#{sessionMB.imagePath(row)}"
+                                            value="/static/images/#{sessionMB.imagePath(row)}"
                                             width="100px"/>
                                     </h:outputLink>
 
@@ -49,7 +49,7 @@
                                                       />
                                     </div>
                                     <ui:repeat value="#{categoryMB.getIngridients(row)}" var="ingridientName">
-                                        <h:outputLink value="/CookBook/search?ingridient=#{ingridientName}" style="margin: 0 3px;">
+                                        <h:outputLink value="/search?ingridient=#{ingridientName}" style="margin: 0 3px;">
                                             <h:outputText value="#{ingridientName}"/>
                                         </h:outputLink>
                                     </ui:repeat>

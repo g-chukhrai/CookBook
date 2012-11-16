@@ -2,10 +2,10 @@ package by.chuger.cookbook.view.bean;
 
 import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.Recipe;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.inject.Named;
 import java.io.Serializable;
@@ -64,7 +64,7 @@ public class SearchMB implements Serializable {
     }
 
     public void readParams() {
-        if (Text.isNotEmpty(ingridient)) {
+        if (MessageUtils.isNotEmpty(ingridient)) {
             String[] ingrs = ingridient.split(";");
             getIngridients().addAll(Arrays.asList(ingrs));
         }

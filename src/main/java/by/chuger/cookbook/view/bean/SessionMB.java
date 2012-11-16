@@ -3,13 +3,13 @@ package by.chuger.cookbook.view.bean;
 import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.Category;
 import by.chuger.cookbook.model.domain.Recipe;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
@@ -69,7 +69,7 @@ public class SessionMB implements Serializable {
         String path = null;
         if (r != null) {
             String imagesNames = r.getImages();
-            if (Text.isNotEmpty(imagesNames)) {
+            if (MessageUtils.isNotEmpty(imagesNames)) {
                 List<String> asList = Arrays.asList(imagesNames.split(";"));
                 path = asList.get(0);
             }

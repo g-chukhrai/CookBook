@@ -4,6 +4,7 @@ import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.Category;
 import by.chuger.cookbook.model.domain.Product;
 import by.chuger.cookbook.model.domain.Recipe;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.LazyDataModel;
@@ -12,7 +13,6 @@ import org.primefaces.model.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.inject.Named;
 import java.io.Serializable;
@@ -111,7 +111,7 @@ public class CategoryLazyMB implements Serializable {
     }
 
     public String cutString(String string) {
-        if (Text.isNotEmpty(string)) {
+        if (MessageUtils.isNotEmpty(string)) {
             string = string.replaceAll("<(.)+?>", "");
             string = string.replaceAll("<(\n)+?>", "");
             if (string.length() > MAX_STRING_LENGTH) {

@@ -4,13 +4,13 @@ import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.Category;
 import by.chuger.cookbook.model.domain.Product;
 import by.chuger.cookbook.model.domain.Recipe;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.inject.Named;
 import java.io.Serializable;
@@ -48,10 +48,10 @@ public class CategoryMB implements Serializable {
 //        } else
         if (state == ViewType.viewNewest) {
             Collection<Recipe> recipesSet = facade.getRecipesOrderByDate();
-            recipes = new ArrayList<Recipe>(recipesSet);
+            recipes = new ArrayList<>(recipesSet);
         } else if (state == ViewType.viewBest) {
             Collection<Recipe> recipesSet = facade.getRecipesOrderByAvgMark();
-            recipes = new ArrayList<Recipe>(recipesSet);
+            recipes = new ArrayList<>(recipesSet);
         }
     }
 
@@ -60,7 +60,7 @@ public class CategoryMB implements Serializable {
             bestBreadModel = new DefaultMenuModel();
             bestBreadModel.addMenuItem(getHomeItem());
             MenuItem menuItem = new MenuItem();
-            menuItem.setValue(Text.getMessage("menu.best"));
+            menuItem.setValue(MessageUtils.getMessage("menu.best"));
             menuItem.setUrl("/best");
             menuItem.setId("best");
             bestBreadModel.addMenuItem(menuItem);
@@ -87,7 +87,7 @@ public class CategoryMB implements Serializable {
         newestBreadModel = new DefaultMenuModel();
         newestBreadModel.addMenuItem(getHomeItem());
         MenuItem menuItem = new MenuItem();
-        menuItem.setValue(Text.getMessage("menu.all"));
+        menuItem.setValue(MessageUtils.getMessage("menu.all"));
         menuItem.setUrl("/newest");
         menuItem.setId("newest");
         newestBreadModel.addMenuItem(menuItem);
@@ -155,7 +155,7 @@ public class CategoryMB implements Serializable {
     }
 
     public String cutString(String string) {
-        if (Text.isNotEmpty(string)) {
+        if (MessageUtils.isNotEmpty(string)) {
             string = string.replaceAll("<(.)+?>", "");
             string = string.replaceAll("<(\n)+?>", "");
             if (string.length() > MAX_STRING_LENGTH) {

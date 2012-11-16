@@ -15,7 +15,7 @@
             <supported-locale>en_US</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>resources.Text</base-name>
+            <base-name>Text</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>

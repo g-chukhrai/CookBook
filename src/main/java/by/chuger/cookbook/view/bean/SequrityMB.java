@@ -3,6 +3,7 @@ package by.chuger.cookbook.view.bean;
 import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.UserAccount;
 import by.chuger.cookbook.model.domain.UserAuthority;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -10,7 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -55,7 +55,7 @@ public class SequrityMB implements Serializable {
         String username = userAccount.getUsername();
         UserAccount userAccountByName = facade.getUserAccountByName(username);
         if (userAccountByName != null) {
-            Text.addError(LOGIN_COMPONENT_ID, "menu.all");
+            MessageUtils.addError(LOGIN_COMPONENT_ID, "menu.all");
             return null;
         }
         UserAuthority userRole = facade.getUserAuthorityById(UserAuthority.ROLE_USER);

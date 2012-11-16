@@ -3,13 +3,13 @@ package by.chuger.cookbook.view.bean;
 import by.chuger.cookbook.model.dao.Facade;
 import by.chuger.cookbook.model.domain.Feedback;
 import by.chuger.cookbook.model.domain.UserAccount;
+import by.chuger.cookbook.utils.MessageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import resources.Text;
 
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
@@ -42,11 +42,11 @@ public class ResponseMB {
     }
 
     public void sendResponse(ActionEvent e) {
-        if (Text.isNotEmpty(response) ) {
+        if (MessageUtils.isNotEmpty(response) ) {
             Feedback feedback = new Feedback();
             feedback.setResponse(response);
             feedback.setDateAdded(Calendar.getInstance().getTime());
-            if (Text.isNotEmpty(email)) {
+            if (MessageUtils.isNotEmpty(email)) {
                 feedback.setEmail(email);
             } else {
                 feedback.setUserAccount(getUserAccount());
@@ -69,10 +69,10 @@ public class ResponseMB {
         boolean isValid = true;
         if (principal instanceof String) {
             isValid = false;
-            Text.showMessage("Authentification problem", "You mus be logged in to rate recipe.");
+            MessageUtils.showMessage("Authentification problem", "You mus be logged in to rate recipe.");
         } else if (principal instanceof UserDetails == false) {
             isValid = false;
-            Text.showMessage("Authentification problem", "Something wrong.");
+            MessageUtils.showMessage("Authentification problem", "Something wrong.");
         }
         return isValid;
     }

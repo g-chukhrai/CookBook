@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.prime.com.tr/ui"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
         >
 
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <p:graphicImage
-                        value="/resources/recipes/#{sessionMB.imagePath(recipeMB.recipe)}"
+                        value="/static/images/#{sessionMB.imagePath(recipeMB.recipe)}"
                         width="100px"/>
                 </div>
                 <div class="recipeHeader">
@@ -55,7 +55,7 @@
                                       value="Время приготовления: #{recipeMB.recipe.cookTime} минут"/>
                         <br/>
                         <h:outputText value="Добавлен: "/>
-                        <h:outputLink value="/CookBook/user/#{recipeMB.recipe.userAccount.username}">
+                        <h:outputLink value="/user/#{recipeMB.recipe.userAccount.username}">
                             <h:outputText value="#{recipeMB.recipe.userAccount.username}"/>
                         </h:outputLink>
 
@@ -94,8 +94,8 @@
                                     slideshowStopText="#{msg['ui.stopSlideshow']}"
                                     slideshowAuto="false">
                             <ui:repeat value="#{recipeMB.images}" var="image">
-                                <h:outputLink value="/CookBook/resources/recipes/#{image}">
-                                    <p:graphicImage value="/resources/recipes/#{image}" width="100px"/>
+                                <h:outputLink value="/static/images/#{image}">
+                                    <p:graphicImage value="/static/images/#{image}" width="100px"/>
                                 </h:outputLink>
                             </ui:repeat>
                         </p:lightBox>

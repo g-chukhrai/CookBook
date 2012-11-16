@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,13 +14,14 @@ import java.util.Set;
 @Table(name = "recipe", catalog = "cookbook")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Recipe implements java.io.Serializable {
+public class Recipe implements Serializable {
 
     private Integer id;
     private Category category;
     private String name;
     private String description;
     private String process;
+    private Double avgMark;
     private Date dateAdded;
     private Integer cookTime = 0;
     private String images;
@@ -133,5 +135,14 @@ public class Recipe implements java.io.Serializable {
 
     public void setUserAccount(UserAccount userAccount) {
         this.userAccount = userAccount;
+    }
+
+    @Column(name = "avg_mark")
+    public Double getAvgMark() {
+        return avgMark;
+    }
+
+    public void setAvgMark(Double avgMark) {
+        this.avgMark = avgMark;
     }
 }
